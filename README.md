@@ -1,5 +1,5 @@
 # hanoitoys Package
-last change 25-Jan-2022
+last change 07-Feb-2022
 ### A collection of Tower of Hanoi solutions.
 aka Tower of Lucas, 
 aka Tower of Brahma, 
@@ -36,7 +36,7 @@ def recursive_hanoi (source, store, destination, n):
     recursive_hanoi (source, store, destination, 1)
     recursive_hanoi (store, source, destination, n - 1)
 ```
-#### HanoiOlive.py Is the nonrecursive Olive algorithm.
+#### HanoiOlive.py is a nonrecursive Olive algorithm.
 Francois Edourard Lucas who wrote about this problem and gave it the Tower of Hanoi name (writing under the nom de plume of M Claus, Claus being an anagram of Lucas) 
 . Raoul Olive, a nephew of Lucas, observed the smallest
 disc moves every other move. The motion of this peg depends on the parity of n.  
@@ -54,7 +54,7 @@ we repeatedly move the Idle token then find the legal move that can be made with
 HanoiNR.py is also included. This is the Wikipedia non recursive Tower of Hanoi solution.
 ## Tower of Hanoi on steroids. Number of pegs > 3. The Steward, Frame Algorithm.  CS 501
 While Francois Edourard Lucas aka M Claus did undoubtedly write on the more than three peg Tower of Hanoi, we will now visit that problem disguised as the Reve's
-Puzzle. In 1907 Henry Ernest Dudeney wrote a book of mathematical puzzles called "*The Canterbury Puzzles and Other Curious Problems*". In this work the characters are from Chaucer's "*The Canterbury Tales*" are on a pilgrimage and resting at a tavern each of them presents a puzzle to their fellow travelers. The first of these is the Reve's[^1] puzzle. In the Reve's puzzle the are 4 stools and 8 cheses of various sizes. These are on a stool in order, the smaller the cheese the closer to the top of the stack. The puzzle is too move the cheeses to another stool in the same order. Only one cheese can be moved at a time. A cheese can only be moved to an empty stool or the top of a larger cheese. Only one cheese can be moved at a time.
+Puzzle. In 1907 Henry Ernest Dudeney wrote a book of mathematical puzzles called "*The Canterbury Puzzles and Other Curious Problems*". In this work the characters are from Chaucer's "*The Canterbury Tales*" are on a pilgrimage and resting at a tavern where each of them presents a puzzle to their fellow travelers. The first of these is the Reve's[^1] puzzle. In the Reve's puzzle the are 4 stools and 8 cheeses of various sizes. These are on a stool in order, the smaller the cheese the closer to the top of the stack. The puzzle is to move the cheeses to another stool in the same order. Only one cheese can be moved at a time. A cheese can only be moved to an empty stool or the top of a larger cheese. Only one cheese can be moved at a time.
 
 Clearly  this is equivalent to a 4 peg/needle 8 disc Tower of Hanoi problem.
 
@@ -69,10 +69,10 @@ subproblems being to move each group to a peg (a recursive task) and
 reassemble them on the destination peg/needle.  They believed this
 solution was 'Optimal'. This is known as the Frame Stewart conjecture.
 In 2018 this conjecture was proved by Roberto Demontis.  
-#### What is Optimal?
+#### What is Optimal?Susing
   In classical (3 peg/needle) Hanoi the constraint to not
 repeat a state means there is only one solution. That solution is
-optimal, there are no solutions using less moves because there are no
+optimal, there are no solutions using fewer moves because there are no
 other solutions period. The optimal solution has 2^n^-1 solutions.
 This is not true when you go beyond 3 pegs. There are many solutions,
 even when we keep the no repeated state requirement. The ones where no
@@ -86,7 +86,7 @@ Consider the 64 disc 4 needle
 solutions: You could just not use one needle and solve this
 classically. Or you could move the top disc to a needle and solve the
 rest as a 63 disc classical Tower of Hanoi. This would take a tiny bit
-more than on half the moves of the 64 disc classical Tower of Hanoi
+more than half the moves of the 64 disc classical Tower of Hanoi
 solution. Or move two discs and then 62 classical, which would be a
 fourth the moves. The first few n values of this are: 
 |n|Number of moves| 
@@ -102,7 +102,7 @@ At n=53 we do the best we can at 18,433 moves.
 #### We need an estimate for cost.  
 We can guide our algorithm by a Cost[^2] Estimator. 
 It too will be recursive. We just have to
-know how many moves, not actually make the moves. How ever the
+know how many moves, not actually make the moves. However the
 estimator has to not only tell us how few moves we can get away with
 but what direction we have to go to get there.  
 Here is an estimator:
@@ -149,14 +149,14 @@ We continue on through the lower case letter to the 52nd which is lower case zed
 Greek letters, which are spelled out in English in the normal output and use unicode equivalents in the graphics.
 
 
-The source at the top level is alway labeled 'A'. The destination is last needle, if it were the 64th it would be 'nu'.
+The source at the top level is always labeled 'A'. The destination is last needle, if it were the 64th it would be 'nu'.
 
 #### The Dialogue.
 
 The Dialogue is not a Turtle dialogue or a tkinter dialogue. This is a default stdin/stdout dialog. Turtle is not even initialized until
-we know we need a graphical output. There are two flavors text mode output and graphics. The graphics dialog needs the same information and
-a little bit more as the text dialog. So the last question of the text mode dialogue is "Do you want a graphical representation?" to which
-a reply of the single character 'n' is sufficient'. The other questions are "Enter Number of Needles :" and
+we know we need a graphical output. There are two flavors: text mode output and graphics. The graphics dialog needs the same information and
+a little bit more than the text dialog. So the last question of the text mode dialogue is "Do you want a graphical representation?" to which
+a reply of the single character 'n' is acceptable. The other questions are "Enter Number of Needles :" and
 "Enter Number of Discs :".
 
 
@@ -206,7 +206,7 @@ When the graphic dialog asks "How many Columns :" This always excludes the desti
 The program figures out how many rows it needs. An example needles=8, discs=11, columns=4 will have two rows. The bottom row with 'A', 'B', 'C', 'D' and 'H'.
 The top row with 'E', 'F', 'G'.
 
-The next question is "Do you want a faster move of discs?". A 'n' is usually called for. If you want the discs to move in a straight line from where they start to where they are going regardless of what is in the way than a 'n' response is appropriate. This speeds up some puzzles by quite a bit. 
+The next question is "Do you want a faster move of discs?". A 'n' is usually called for. If you want the discs to move in a straight line from where they start to where they are going regardless of what is in the way than a 'y' response is appropriate. This speeds up some puzzles by quite a bit. 
 
 #### The graphics option.
 
@@ -238,7 +238,7 @@ First Edition ISBN 978-3-0348-0237-6
 [Widipedia article about the book](https://en.wikipedia.org/wiki/The_Tower_of_Hanoi_%E2%80%93_Myths_and_Maths)
 
 
-This material is found in a much expanded form in a chapter of a book I have written. I will update this notice if and when I find a publisher.  
+This material is found in a much expanded form in a chapter of a book I have written. I will update this notice when it is published.  
  
 [^1]: Reve from the word Reeve: honored official. The Reeve of the Shire is the source of the modern word Sheriff.  
 [^2]: Luke 14:28 For which of you, intending to build a tower, sitteth not down first, and counteth the cost, whether he have sufficient to finish it?  
