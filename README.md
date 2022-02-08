@@ -1,5 +1,5 @@
 # hanoitoys Package
-last change 07-Feb-2022
+last change 08-Feb-2022
 ### A collection of Tower of Hanoi solutions.
 aka Tower of Lucas, 
 aka Tower of Brahma, 
@@ -69,7 +69,7 @@ subproblems being to move each group to a peg (a recursive task) and
 reassemble them on the destination peg/needle.  They believed this
 solution was 'Optimal'. This is known as the Frame Stewart conjecture.
 In 2018 this conjecture was proved by Roberto Demontis.  
-#### What is Optimal?Susing
+#### What is Optimal?
   In classical (3 peg/needle) Hanoi the constraint to not
 repeat a state means there is only one solution. That solution is
 optimal, there are no solutions using fewer moves because there are no
